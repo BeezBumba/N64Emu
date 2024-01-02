@@ -2,7 +2,6 @@
 
 Nintendo 64 Emulator in JavaScript and WebAssembly.
 
-![alt screenshot](https://raw.githubusercontent.com/lrusso/Nintendo64/main/Nintendo64.png)
 
 ## Web:
 
