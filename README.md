@@ -6,7 +6,7 @@ Nintendo 64 Emulator in JavaScript and WebAssembly.
 
 ## Web:
 
-https://lrusso.github.io/Nintendo64/Nintendo64.htm
+https://beezbumba.github.io/N64Emu/Nintendo64.htm
 
 ## Main differences with N64Wasm:
 
