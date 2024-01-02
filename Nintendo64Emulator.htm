@@ -302,15 +302,6 @@
 					var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, "");
 
 					// DOWNLOADING THE ROMSTATE AS A FILE
-
-
-					var request = indexedDB.open("N64WASMDB");
-					request.onsuccess = function (ev)
-						{
-						var db = ev.target.result;
-						var romStore = db.transaction("N64WASMSTATES", "readwrite").objectStore("N64WASMSTATES");
-						var addRequest = romStore.put(compressed, "custom.v64");
-						}
 					}
 				}
 
