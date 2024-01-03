@@ -356,7 +356,7 @@
 
 			// SETTING FUNCTIONS THAT WILL BE CALLED WHEN THE USER CLICKS, DOUBLE CLICKS OR MOVES THE MOUSE IN ORDER TO SHOW THE SYSTEM ICONS
 			document.addEventListener("click", parent.goBackButtonResetIncrement, false);
-			document.addEventListener("dblclick", parent.goBackButtonResetIncrement, false);
+			document.addEventListener("touchstart", parent.goBackButtonResetIncrement, false);
 
 			// PREVENTING TO SHOW THE EMULATOR MENU
 			document.addEventListener("keydown",function(e){detectEmulatorKey(e)});
