@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<canvas id="canvas"></canvas>
-		<input type="file" class="fileupload_uploader" id="fileupload_uploader" onchange="loadState_GetFile(event.target.files);">
+	<!--	<input type="file" class="fileupload_uploader" id="fileupload_uploader" onchange="loadState_GetFile(event.target.files);"> -->
 		<script>
 			var Module = {};
 			var inputController;
@@ -35,7 +35,7 @@
 			    // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
 			    Module._neil_serialize()
 			    var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
-				  request.onupgradeneeded = function(ev) {
+				  request.onsuccess = function(ev) {
 				var db = ev.target.result;
 				var romStore = db.transaction("N64EMUSTATES", "readwrite");
 				var ObjectStore = romStore.objectStore("N64EMUSTATES");
