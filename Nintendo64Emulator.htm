@@ -56,12 +56,11 @@
 					var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
 					var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
 					var saveStateFile = romStore.get(fileName);
-					console.log(saveStateFile);
 					saveStateFile.onsuccess = function (event) {
 						if (saveStateFile.result)
 						{
 							var byteArray = saveStateFile.result;
-							FS.writeFile('/savesate.gz', byteArray);
+							FS.writeFile(fileName, byteArray);
 						}
 					}
 					}
