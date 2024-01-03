@@ -27,17 +27,13 @@
 			    var db = ev.target.result;
 			    var objectStore = db.createObjectStore("N64EMUSTATES", {autoIncrement: true});
 			}
-
-			request.onsuccess = function(ev) {
-			            var db = ev.target.result;
-			            var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
-			            romStore.put(4343434,"botterbambo");
-			        }
 			function saveState() {
+				var saving = false
 			    try {
 			        // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
 			        Module._neil_serialize()
 			        var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
+				var request = indexedDB.open('N64EMUDB');
 			        request.onsuccess = function(ev) {
 			            var db = ev.target.result;
 			            var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
@@ -53,6 +49,7 @@
 			  try {
 			    // GETTING THE NAME OF THE ROM FILE
 				var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
+				  var request = indexedDB.open('N64EMUDB');
 			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
 				request.onsuccess = function (ev)
 					{
