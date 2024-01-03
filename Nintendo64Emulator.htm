@@ -57,6 +57,7 @@
 					var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
 					console.log("About to load savefile")
 					var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
+					console.log(fileName);
 					var saveStateFile = romStore.get(fileName);
 					}
 				
