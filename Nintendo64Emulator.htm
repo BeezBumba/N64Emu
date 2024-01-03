@@ -24,24 +24,18 @@
 			function base64ToArrayBuffer(r){for(var e=window.atob(r),n=e.length,a=new Uint8Array(n),f=0;f<n;f++)a[f]=e.charCodeAt(f);return a.buffer}
 
 			var request = indexedDB.open("N64EMUDB",20);
-					request.onupgradeneeded = function (ev)
-						{
-						var db = ev.target.result;
+						var db = "N64EMUDB";
 						var objectStore = db.createObjectStore("N64EMUSTATES");
-						}
 
 			function saveState() {
 			  try {
 			    // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
 			    Module._neil_serialize()
 			    var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
-			request.onsuccess = function (ev)
-						{
-						var db = ev.target.result;
+						var db = "N64EMUDB";
 						var romStore = db.transaction("N64EMUSTATES", "readwrite");
 						var ObjectStore = romStore.objectStore("N64EMUSTATES");
 						ObjectStore.add(FS.readFile("/savestate.gz", { encoding: "binary" }),fileName);
-						}
 			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
 			  } catch (err) {
 			    console.error(err);
