@@ -48,7 +48,7 @@
 			function loadState() {
 			  try {
 			    // GETTING THE NAME OF THE ROM FILE
-				var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
+				
 				  var request = indexedDB.open('N64EMUDB');
 			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
 				request.onsuccess = function (ev)
@@ -56,6 +56,7 @@
 					var db = ev.target.result;
 					var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
 					console.log("About to load savefile")
+					var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
 					var saveStateFile = romStore.get(fileName);
 					}
 				
