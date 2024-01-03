@@ -41,7 +41,7 @@
 				var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
 			    
 			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
-			    var saveStateFile = JSON.parse(localStorage.getItem(fileName));
+			    var saveStateFile = localStorage.getItem(fileName);
 			    
 			
 			      // CALLING THE EMSCRIPTEN FUNCTION TO LOAD THE STATE
