@@ -61,15 +61,11 @@
 							let byteArray = saveStateFile.result;
 							FS.writeFile("/savestate.gz", byteArray);
 						}
-					}	
 					}
-			  }	
-			}
-			    
-			
+					}
 			      // CALLING THE EMSCRIPTEN FUNCTION TO LOAD THE STATE
 			      Module._neil_unserialize();
-			    
+			  
 			  } catch (err) {
 			    console.error(err);
 			  }
