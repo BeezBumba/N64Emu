@@ -37,7 +37,7 @@
 			            var db = ev.target.result;
 			            var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
 			            console.log("About to add savefile")
-			            romStore.put(FS.readFile("/savestate.gz", { encoding: "binary" }),fileName);
+			            romStore.put(FS.readFile("/savestate.gz"),fileName);
 			        }
 			  } catch (err) {
 			    console.error(err);
