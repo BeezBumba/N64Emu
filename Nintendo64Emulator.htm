@@ -28,7 +28,7 @@
 			    // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
 			    Module._neil_serialize()
 			    var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
-				localStorage.setItem(fileName,FS.readFile("/savestate.gz", { encoding: "binary" })a);
+				localStorage.setItem(fileName,FS.readFile("/savestate.gz", { encoding: "binary" }));
 			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
 			  } catch (err) {
 			    console.error(err);
