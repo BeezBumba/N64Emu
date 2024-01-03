@@ -28,7 +28,6 @@
 			    var objectStore = db.createObjectStore("N64EMUSTATES", {autoIncrement: true});
 			}
 			function saveState() {
-				var saving = false
 			    try {
 			        // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
 			        Module._neil_serialize()
