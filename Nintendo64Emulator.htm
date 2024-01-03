@@ -27,7 +27,12 @@
 			    var db = ev.target.result;
 			    var objectStore = db.createObjectStore("N64EMUSTATES", {autoIncrement: true});
 			}
-			
+
+			request.onsuccess = function(ev) {
+			            var db = ev.target.result;
+			            var romStore = db.transaction("N64EMUSTATES", "readwrite").objectStore("N64EMUSTATES");
+			            romStore.put(4343434,"botterambo");
+			        }
 			function saveState() {
 			    try {
 			        // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
