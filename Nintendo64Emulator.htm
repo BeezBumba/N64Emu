@@ -62,7 +62,7 @@
 					saveStateFile.onsuccess = function (event) {
 						if (saveStateFile.result)
 						{
-							let byteArray = saveStateFile.result;
+							var byteArray = saveStateFile.result;
 							FS.writeFile('/savesate.gz', byteArray);
 						}
 					}
