@@ -64,7 +64,8 @@
 							let byteArray = saveStateFile.result;
 							FS.writeFile("/savestate.gz", byteArray);
 						}
-					}	resolve();
+						resolve();
+					}	
 					}
 					
 				}
