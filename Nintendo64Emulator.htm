@@ -47,10 +47,7 @@
 			function loadState() {
 			  try {
 			    // GETTING THE NAME OF THE ROM FILE
-				return new Promise(function (resolve, reject) {
 				var request = indexedDB.open('N64EMUDB');
-				try
-				{
 				// LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
 				request.onsuccess = function (ev)
 					{
@@ -64,12 +61,10 @@
 							let byteArray = saveStateFile.result;
 							FS.writeFile("/savestate.gz", byteArray);
 						}
-						resolve();
-					};	
+					}	
 					}
-					
-				}
-				}
+			  }	
+			}
 			    
 			
 			      // CALLING THE EMSCRIPTEN FUNCTION TO LOAD THE STATE
