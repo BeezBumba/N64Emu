@@ -41,11 +41,6 @@
 			            console.log("About to add savefile")
 			            ObjectStore.add(FS.readFile("/savestate.gz", { encoding: "binary" }),fileName);
 			        }
-			    } 
-			 }
-
-
-			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
 			  } catch (err) {
 			    console.error(err);
 			  }
