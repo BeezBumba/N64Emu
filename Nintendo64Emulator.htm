@@ -29,7 +29,6 @@
 			    Module._neil_serialize()
 			    
 			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
-				 var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, "");
 			    localStorage.setItem(fileName, FS.readFile("/savestate.gz", { encoding: "binary" }));
 			  } catch (err) {
 			    console.error(err);
