@@ -28,8 +28,10 @@
 			    // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
 			    Module._neil_serialize()
 			    var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
+				const transaction = db.transaction([objectStoreName], "readwrite");
+				const objectStore = transaction.objectStore(objectStoreName);
+				objectStore.add(FS.readFile("/savestate.gz", { encoding: "binary" })a, fileName);
 			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
-			    localStorage.setItem(fileName, FS.readFile("/savestate.gz", { encoding: "binary" }));
 			  } catch (err) {
 			    console.error(err);
 			  }
@@ -41,8 +43,9 @@
 				var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
 			    
 			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
-			    var saveStateFile = localStorage.getItem(fileName);
-			    
+			    const transaction = db.transaction([objectStoreName], "readwrite");
+				const objectStore = transaction.objectStore(objectStoreName);
+				var saveStateFile = objectStore.get(key);
 			
 			      // CALLING THE EMSCRIPTEN FUNCTION TO LOAD THE STATE
 			      Module._neil_unserialize();
