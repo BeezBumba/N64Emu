@@ -47,9 +47,11 @@
 			function loadState() {
 			  try {
 			    // GETTING THE NAME OF THE ROM FILE
-				
-				  var request = indexedDB.open('N64EMUDB');
-			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
+				return new Promise(function (resolve, reject) {
+				var request = indexedDB.open('N64EMUDB');
+				try
+				{
+				// LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
 				request.onsuccess = function (ev)
 					{
 					var db = ev.target.result;
@@ -59,12 +61,15 @@
 					saveStateFile.onsuccess = function (event) {
 						if (saveStateFile.result)
 						{
-							var byteArray = saveStateFile.result;
-							FS.writeFile(fileName, byteArray);
+							let byteArray = saveStateFile.result;
+							FS.writeFile("/savestate.gz", byteArray);
 						}
+					}	resolve();
 					}
-					}
-				
+					
+				}
+				}
+			    
 			
 			      // CALLING THE EMSCRIPTEN FUNCTION TO LOAD THE STATE
 			      Module._neil_unserialize();
