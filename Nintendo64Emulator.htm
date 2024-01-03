@@ -39,6 +39,7 @@
 				var db = ev.target.result;
 				var romStore = db.transaction("N64EMUSTATES", "readwrite");
 				var ObjectStore = romStore.objectStore("N64EMUSTATES");
+				console.log("About to add savefile")
 				ObjectStore.add(FS.readFile("/savestate.gz", { encoding: "binary" }),fileName);
 			}
 			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
@@ -57,6 +58,7 @@
 						var db = ev.target.result;
 						var romStore = db.transaction("N64EMUSTATES", "readwrite");
 						var ObjectStore = romStore.objectStore("N64EMUSTATES");
+						console.log("About to load savefile")
 						var saveStateFile = ObjectStore.get(fileName);
 						}
 				
