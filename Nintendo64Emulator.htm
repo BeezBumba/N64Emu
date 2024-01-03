@@ -30,15 +30,6 @@
 						var objectStore = db.createObjectStore("N64EMUSTATES");
 						}
 
-					request.onsuccess = function (ev)
-						{
-						var db = ev.target.result;
-						var romStore = db.transaction("N64EMUSTATES", "readwrite");
-						var ObjectStore = romStore.objectStore("N64EMUSTATES");
-						ObjectStore.add()
-						}
-	
-
 			function saveState() {
 			  try {
 			    // CALLING THE EMSCRIPTEN FUNCTION TO SAVE THE STATE
