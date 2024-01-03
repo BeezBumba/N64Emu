@@ -43,14 +43,10 @@
 			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
 			    var saveStateFile = localStorage.getItem(fileName);
 			    
-			    // CHECKING IF THE SAVE STATE FILE EXISTS
-			    if (saveStateFile !== null) {
-			      // WRITING THE SAVE STATE FILE
-			      FS.writeFile("/savestate.gz", new Uint8Array(saveStateFile), { encoding: "binary" });
-			      
+			
 			      // CALLING THE EMSCRIPTEN FUNCTION TO LOAD THE STATE
 			      Module._neil_unserialize();
-			    }
+			    
 			  } catch (err) {
 			    console.error(err);
 			  }
