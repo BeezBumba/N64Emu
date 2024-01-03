@@ -29,6 +29,7 @@
 			    Module._neil_serialize()
 			    
 			    // STORING THE SAVE STATE FILE IN LOCAL STORAGE
+				 var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, "");
 			    localStorage.setItem(fileName, FS.readFile("/savestate.gz", { encoding: "binary" }));
 			  } catch (err) {
 			    console.error(err);
@@ -38,7 +39,7 @@
 			function loadState() {
 			  try {
 			    // GETTING THE NAME OF THE ROM FILE
-			    var romFileName = "example.rom"; // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
+				var fileName = parent.ROMNAME.replace(/\.[^/.]+$/, ""); // REPLACE THIS WITH THE NAME OF YOUR ROM FILE
 			    
 			    // LOADING THE SAVE STATE FILE FROM LOCAL STORAGE
 			    var saveStateFile = localStorage.getItem(fileName);
