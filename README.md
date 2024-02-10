@@ -10,3 +10,5 @@ https://beezbumba.github.io/N64Emu/Nintendo64.htm
 ## Based on the work of:
 
 https://github.com/nbarkhina/N64Wasm
+
+New Version: beezbumba.github.io/N64Emulator
